@@ -26,7 +26,8 @@ git clone https://github.com/stegmannb/keepassxc-recover.git
 cd recover
 
 # Set up development environment with Mise
-mise sync
+mise install
+mise run sync
 
 # The tool will be available as `keepassxc-recover` command after sync
 ```
