@@ -27,9 +27,9 @@ depends = ["sync:*"]
 description = "Format ansible files"
 run = "prettier --write ."
 
-[tasks."format:shfmt"]
-description = "Format shell scripts"
-run = "shfmt --write ."
+[tasks."format:python"]
+description = "Format Python files"
+run = "uv run ruff format ."
 
 [tasks.format]
 description = "Format all files"

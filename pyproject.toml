@@ -1,16 +1,24 @@
 [project]
 name = "recover"
-version = "0.1.0"
+version = "1.0.0"
 description = "KeePassXC database recovery tool for trying multiple credential combinations"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "click>=8.0.0",
-    "tqdm>=4.60.0"
+    "click>=8.2.1",
+    "tqdm>=4.67.1"
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.4"
 ]
 
 [project.scripts]
 recover = "recover.cli:main"
+
+[tool.setuptools]
+packages = ["recover"]
 
 [tool.uv]
 package = true
