@@ -81,7 +81,14 @@ class CredentialManager:
     def set_yubikey_slots(self, slots: List[int]) -> None:
         """Set YubiKey slots to try."""
         self.yubikey_slots = slots
-        self._include_no_yubikey = False  # If YubiKey slots specified, don't try without
+        # For recovery purposes, still try combinations without YubiKey
+        # self._include_no_yubikey = False  # Keep trying without YubiKey for comprehensive recovery
+    
+    def enable_try_all_combinations(self) -> None:
+        """Enable trying all possible combinations including no-password scenarios."""
+        self._include_no_passphrase = True
+        self._include_no_keyfile = True
+        # Keep YubiKey setting as is - it's handled separately
     
     def enable_no_passphrase(self, enabled: bool = True) -> None:
         """Enable trying combinations without passphrase."""
@@ -98,6 +105,10 @@ class CredentialManager:
         if self._include_no_passphrase:
             passphrase_options.append(None)
         
+        # If no passphrases provided but we have other factors, enable no-passphrase
+        if not self.passphrases and (self.keyfiles or self.yubikey_slots):
+            passphrase_options.append(None)
+        
         # Prepare keyfile options  
         keyfile_options = self.keyfiles.copy()
         if self._include_no_keyfile or not self.keyfiles:
@@ -112,9 +123,9 @@ class CredentialManager:
         for passphrase, keyfile, yubikey_slot in itertools.product(
             passphrase_options, keyfile_options, yubikey_options
         ):
-            # Skip invalid combinations
+            # Skip invalid combinations - must have at least one credential factor
             if passphrase is None and keyfile is None and yubikey_slot is None:
-                continue  # Must have at least one credential factor
+                continue
                 
             yield Credential(
                 passphrase=passphrase,

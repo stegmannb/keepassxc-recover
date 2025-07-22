@@ -9,6 +9,9 @@ __pycache__/
 # VSCode
 .vscode/
 
-# Example files
-example*
+# Project files
 passphrases.txt
+*.kdbx
+keyfiles/
+.recovery_progress.json*
+.recovery_progress.success.json

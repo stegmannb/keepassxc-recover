@@ -25,6 +25,10 @@ from .progress import ProgressManager
               help='Try with/without YubiKey')
 @click.option('--yubikey-slots', default='1,2', 
               help='YubiKey slots to try (comma-separated, default: 1,2)')
+@click.option('--try-no-password/--skip-no-password', default=True,
+              help='Try combinations without passphrase (default: enabled)')
+@click.option('--try-no-keyfile/--skip-no-keyfile', default=True, 
+              help='Try combinations without keyfiles (default: enabled)')
 @click.option('--progress-file', type=click.Path(path_type=Path),
               default='.recovery_progress.json',
               help='Progress file location (default: .recovery_progress.json)')
@@ -42,6 +46,8 @@ def main(
     keyfile_list: tuple,
     yubikey: bool,
     yubikey_slots: str,
+    try_no_password: bool,
+    try_no_keyfile: bool,
     progress_file: Path,
     resume: bool,
     timeout: int,
@@ -52,9 +58,13 @@ def main(
     DATABASE: Path to the KeePassXC database file (.kdbx)
     """
     
-    # Validate inputs
-    if not passphrases and not passphrases_list:
-        click.echo("Error: Must provide either --passphrases file or --passphrases-list", err=True)
+    # Validate inputs - allow no passphrases if other credentials provided
+    has_passphrases = passphrases or passphrases_list
+    has_keyfiles = keyfiles or keyfile_list
+    has_yubikey = yubikey
+    
+    if not has_passphrases and not has_keyfiles and not has_yubikey:
+        click.echo("Error: Must provide at least one credential type (passphrases, keyfiles, or yubikey)", err=True)
         sys.exit(1)
     
     # Initialize components
@@ -77,6 +87,10 @@ def main(
         if yubikey:
             slots = [int(s.strip()) for s in yubikey_slots.split(',')]
             credential_manager.set_yubikey_slots(slots)
+        
+        # Enable no-password and no-keyfile options (enabled by default)
+        credential_manager.enable_no_passphrase(try_no_password)
+        credential_manager.enable_no_keyfile(try_no_keyfile)
         
         # Initialize progress manager
         progress_manager = ProgressManager(progress_file)

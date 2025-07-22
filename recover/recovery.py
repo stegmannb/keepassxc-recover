@@ -133,6 +133,7 @@ class RecoveryEngine:
                 print(f"   YubiKey slots: {stats['yubikey_slots']}")
                 print(f"   Total combinations: {stats['total_combinations']}")
                 print()
+                
         
         # Get total combinations and skip count
         progress_info = self.progress_manager.get_progress_info()

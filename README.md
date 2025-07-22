@@ -39,7 +39,13 @@ recover database.kdbx --passphrases passphrases.txt --keyfile-list ./my.key
 # Try with YubiKey (requires YubiKey to be present)
 recover database.kdbx --passphrases passphrases.txt --yubikey --yubikey-slots 1,2
 
-# Complex recovery with all factors
+# Try keyfile-only combinations (no password) - enabled by default
+recover database.kdbx --keyfiles ./keyfiles/
+
+# Try YubiKey-only combinations (no password, no keyfile) - enabled by default  
+recover database.kdbx --yubikey
+
+# Try all possible combinations (default behavior)
 recover database.kdbx \\
   --passphrases passphrases.txt \\
   --keyfiles ./keyfiles/ \\
@@ -61,6 +67,12 @@ recover database.kdbx --passphrases passphrases.txt --timeout 60
 
 # Quiet mode (minimal output)
 recover database.kdbx --passphrases passphrases.txt --quiet
+
+# Skip no-password combinations (if you're sure password is required)
+recover database.kdbx --passphrases passphrases.txt --skip-no-password
+
+# Skip no-keyfile combinations (if you're sure keyfile is required)  
+recover database.kdbx --passphrases passphrases.txt --keyfiles ./keyfiles/ --skip-no-keyfile
 ```
 
 ## File Formats
