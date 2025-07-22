@@ -29,7 +29,7 @@ cd recover
 # Set up development environment with Mise
 mise sync
 
-# The tool will be available as `recover` command after sync
+# The tool will be available as `keepassxc-recover` command after sync
 ```
 
 ### Alternative Installation Methods
@@ -58,7 +58,7 @@ pip install recover
 
 ```bash
 # Check that the tool is available
-recover --help
+keepassxc-recover --help
 
 # Verify keepassxc-cli is available
 which keepassxc-cli
@@ -70,28 +70,28 @@ which keepassxc-cli
 
 ```bash
 # Try passphrases from a file
-recover database.kdbx --passphrases passphrases.txt
+keepassxc-recover database.kdbx --passphrases passphrases.txt
 
 # Try specific passphrases from command line
-recover database.kdbx --passphrases-list "password1" --passphrases-list "password2"
+keepassxc-recover database.kdbx --passphrases-list "password1" --passphrases-list "password2"
 
 # Try passphrases with keyfiles from directory
-recover database.kdbx --passphrases passphrases.txt --keyfiles ./keyfiles/
+keepassxc-recover database.kdbx --passphrases passphrases.txt --keyfiles ./keyfiles/
 
 # Try specific keyfile
-recover database.kdbx --passphrases passphrases.txt --keyfile-list ./my.key
+keepassxc-recover database.kdbx --passphrases passphrases.txt --keyfile-list ./my.key
 
 # Try with YubiKey (requires YubiKey to be present)
-recover database.kdbx --passphrases passphrases.txt --yubikey --yubikey-slots 1,2
+keepassxc-recover database.kdbx --passphrases passphrases.txt --yubikey --yubikey-slots 1,2
 
 # Try keyfile-only combinations (no password) - enabled by default
-recover database.kdbx --keyfiles ./keyfiles/
+keepassxc-recover database.kdbx --keyfiles ./keyfiles/
 
 # Try YubiKey-only combinations (no password, no keyfile) - enabled by default
-recover database.kdbx --yubikey
+keepassxc-recover database.kdbx --yubikey
 
 # Try all possible combinations (default behavior)
-recover database.kdbx \\
+keepassxc-recover database.kdbx \\
   --passphrases passphrases.txt \\
   --keyfiles ./keyfiles/ \\
   --yubikey \\
@@ -102,22 +102,22 @@ recover database.kdbx \\
 
 ```bash
 # Custom progress file location
-recover database.kdbx --passphrases passphrases.txt --progress-file custom_progress.json
+keepassxc-recover database.kdbx --passphrases passphrases.txt --progress-file custom_progress.json
 
 # Start fresh (don't resume from previous run)
-recover database.kdbx --passphrases passphrases.txt --no-resume
+keepassxc-recover database.kdbx --passphrases passphrases.txt --no-resume
 
 # Increase timeout for slow systems
-recover database.kdbx --passphrases passphrases.txt --timeout 60
+keepassxc-recover database.kdbx --passphrases passphrases.txt --timeout 60
 
 # Quiet mode (minimal output)
-recover database.kdbx --passphrases passphrases.txt --quiet
+keepassxc-recover database.kdbx --passphrases passphrases.txt --quiet
 
 # Skip no-password combinations (if you're sure password is required)
-recover database.kdbx --passphrases passphrases.txt --skip-no-password
+keepassxc-recover database.kdbx --passphrases passphrases.txt --skip-no-password
 
 # Skip no-keyfile combinations (if you're sure keyfile is required)
-recover database.kdbx --passphrases passphrases.txt --keyfiles ./keyfiles/ --skip-no-keyfile
+keepassxc-recover database.kdbx --passphrases passphrases.txt --keyfiles ./keyfiles/ --skip-no-keyfile
 ```
 
 ## File Formats
@@ -225,10 +225,10 @@ mise run format:shfmt     # Format shell scripts with shfmt
 
 ```bash
 # Test with sample database
-recover api.kdbx --passphrases passphrases.txt --keyfiles keyfiles/
+keepassxc-recover api.kdbx --passphrases passphrases.txt --keyfiles keyfiles/
 
 # Test YubiKey functionality (requires YubiKey)
-recover api.kdbx --yubikey --yubikey-slots 1,2
+keepassxc-recover api.kdbx --yubikey --yubikey-slots 1,2
 ```
 
 ## Troubleshooting
@@ -267,7 +267,7 @@ which keepassxc-cli
 
 ### Getting Help
 
-- Check command help: `recover --help`
+- Check command help: `keepassxc-recover --help`
 - Review sample files in the repository for format examples
 - Verify your credentials work manually with `keepassxc-cli` first
 

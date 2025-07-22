@@ -10,10 +10,10 @@ This is a KeePassXC database recovery tool written in Python. It systematically 
 
 ### Basic Recovery Commands
 
-- `recover database.kdbx --passphrases passphrases.txt` - Try passphrases from file
-- `recover database.kdbx --keyfiles keyfiles/` - Try keyfiles from directory
-- `recover database.kdbx --yubikey` - Try YubiKey combinations
-- `recover database.kdbx --passphrases passphrases.txt --keyfiles keyfiles/ --yubikey` - Comprehensive recovery
+- `keepassxc-recover database.kdbx --passphrases passphrases.txt` - Try passphrases from file
+- `keepassxc-recover database.kdbx --keyfiles keyfiles/` - Try keyfiles from directory
+- `keepassxc-recover database.kdbx --yubikey` - Try YubiKey combinations
+- `keepassxc-recover database.kdbx --passphrases passphrases.txt --keyfiles keyfiles/ --yubikey` - Comprehensive recovery
 
 ### Key Features
 
@@ -37,7 +37,7 @@ This is a KeePassXC database recovery tool written in Python. It systematically 
 
 ### Testing
 
-- Test with sample database: `recover api.kdbx --passphrases passphrases.txt --keyfiles keyfiles/`
+- Test with sample database: `keepassxc-recover api.kdbx --passphrases passphrases.txt --keyfiles keyfiles/`
 - The tool uses `keepassxc-cli` internally, ensure it's available: `which keepassxc-cli`
 
 ## Project Architecture
@@ -69,7 +69,7 @@ This is a KeePassXC database recovery tool written in Python. It systematically 
 
 - Mise manages Python and UV versions
 - UV handles Python package dependencies
-- Entry point: `recover` command available after `uv sync`
+- Entry point: `keepassxc-recover` command available after `uv sync`
 
 ## Development Workflow
 

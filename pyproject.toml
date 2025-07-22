@@ -34,7 +34,7 @@ dev = [
 ]
 
 [project.scripts]
-recover = "recover.cli:main"
+keepassxc-recover = "recover.cli:main"
 
 [tool.setuptools]
 packages = ["recover"]
