@@ -4,6 +4,25 @@ version = "1.0.0"
 description = "KeePassXC database recovery tool for trying multiple credential combinations"
 readme = "README.md"
 requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [
+    { name = "recover", email = "noreply@github.com" }
+]
+maintainers = [
+    { name = "recover", email = "noreply@github.com" }
+]
+keywords = ["keepassxc", "password", "recovery", "security", "cli"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Recovery Tools",
+    "Environment :: Console",
+]
 dependencies = [
     "click>=8.2.1",
     "tqdm>=4.67.1"

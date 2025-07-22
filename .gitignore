@@ -14,3 +14,6 @@ passphrases.txt
 *.kdbx
 keyfiles/
 *.recovery_progress*.json*
+
+# Cache
+.ruff_cache/

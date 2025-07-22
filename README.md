@@ -23,13 +23,35 @@ A Python CLI tool to recover access to KeePassXC databases by systematically try
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/username/recover.git
 cd recover
 
 # Set up development environment with Mise
 mise sync
 
 # The tool will be available as `recover` command after sync
+```
+
+### Alternative Installation Methods
+
+**Direct installation with UV:**
+
+```bash
+# Install directly from GitHub
+uv tool install git+https://github.com/username/recover.git
+
+# Or install from PyPI (when published)
+uv tool install recover
+```
+
+**Installation with pip:**
+
+```bash
+# Install directly from GitHub
+pip install git+https://github.com/username/recover.git
+
+# Or install from PyPI (when published)
+pip install recover
 ```
 
 ### Verify Installation
