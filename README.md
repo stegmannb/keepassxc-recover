@@ -10,6 +10,10 @@ A Python CLI tool to recover access to KeePassXC databases by systematically try
 - **Progress tracking**: Shows real-time progress with estimated completion time
 - **Flexible input**: Load credentials from files or command line arguments
 
+## Made with AI
+
+This project was developed with the assistance of Claude AI. The motivation was twofold: I wanted to experiment with AI-assisted development and I personally needed this tool to recover access to my own KeePassXC databases.
+
 ## Installation
 
 ### Prerequisites
@@ -270,7 +274,3 @@ which keepassxc-cli
 - Check command help: `keepassxc-recover --help`
 - Review sample files in the repository for format examples
 - Verify your credentials work manually with `keepassxc-cli` first
-
-## License
-
-This project is a defensive security tool intended for recovering access to your own KeePassXC databases only.
