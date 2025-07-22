@@ -1,7 +1,0 @@
-{
-  "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "/home/leit/.local/share/mise/shims/node"
-  },
-  "sops.binPath": "/home/leit/.local/share/mise/shims/sops",
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv"
-}
