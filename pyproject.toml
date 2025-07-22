@@ -6,10 +6,10 @@ readme = "README.md"
 requires-python = ">=3.13"
 license = { text = "MIT" }
 authors = [
-    { name = "recover", email = "noreply@github.com" }
+    { name = "Bastian Stegmann", email = "bastian.stegmann@pm.me" }
 ]
 maintainers = [
-    { name = "recover", email = "noreply@github.com" }
+    { name = "Bastian Stegmann", email = "bastian.stegmann@pm.me" }
 ]
 keywords = ["keepassxc", "password", "recovery", "security", "cli"]
 classifiers = [
