@@ -13,5 +13,4 @@ __pycache__/
 passphrases.txt
 *.kdbx
 keyfiles/
-.recovery_progress.json*
-.recovery_progress.success.json
+*.recovery_progress*.json*
