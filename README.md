@@ -14,7 +14,6 @@ A Python CLI tool to recover access to KeePassXC databases by systematically try
 
 ### Prerequisites
 
-- Python 3.13+
 - [Mise](https://mise.jdx.dev/) (for tool management)
 - KeePassXC with `keepassxc-cli` command available in PATH
 - YubiKey (optional, for hardware key support)
