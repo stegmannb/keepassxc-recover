@@ -1,6 +1,6 @@
 # KeePassXC Database Recovery Tool
 
-A Python CLI tool to recover access to KeePassXC databases by systematically trying multiple credential combinations. This defensive security tool is designed to help you recover access to your own databases when you've forgotten the exact combination of credentials used.
+A Python CLI tool to recover access to KeePassXC databases by systematically trying multiple credential combinations.
 
 ## Features
 
@@ -23,7 +23,7 @@ A Python CLI tool to recover access to KeePassXC databases by systematically try
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/recover.git
+git clone https://github.com/stegmannb/keepassxc-recover.git
 cd recover
 
 # Set up development environment with Mise
@@ -38,7 +38,7 @@ mise sync
 
 ```bash
 # Install directly from GitHub
-uv tool install git+https://github.com/username/recover.git
+uv tool install git+https://github.com/stegmannb/keepassxc-recover.git
 
 # Or install from PyPI (when published)
 uv tool install recover
@@ -48,7 +48,7 @@ uv tool install recover
 
 ```bash
 # Install directly from GitHub
-pip install git+https://github.com/username/recover.git
+pip install git+https://github.com/stegmannb/keepassxc-recover.git
 
 # Or install from PyPI (when published)
 pip install recover
