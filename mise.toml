@@ -1,0 +1,36 @@
+[tools]
+
+python = '3.12.6'
+uv = 'latest'
+
+[[env]]
+_.python.venv = { path = ".venv", create = true, uv_create_args = [
+    '--seed',
+], python = "3.12.6" }
+
+[[env]]
+'_'.file = "env.yaml"
+
+[tasks."sync:mise"]
+description = "Sync Mise dependencies"
+run = "mise sync python --uv"
+
+[tasks."sync:uv"]
+description = "Sync UV dependencies"
+run = "uv sync"
+wait_for = ["sync:mise"]
+
+[tasks.sync]
+depends = ["sync:*"]
+
+[tasks."format:prettier"]
+description = "Format ansible files"
+run = "prettier --write ."
+
+[tasks."format:shfmt"]
+description = "Format shell scripts"
+run = "shfmt --write ."
+
+[tasks.format]
+description = "Format all files"
+depends = ["format:*"]
