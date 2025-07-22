@@ -1,12 +1,12 @@
 [tools]
 
-python = '3.12.6'
+python = '3.13.2'
 uv = 'latest'
 
 [[env]]
 _.python.venv = { path = ".venv", create = true, uv_create_args = [
     '--seed',
-], python = "3.12.6" }
+], python = "3.13.2" }
 
 [[env]]
 '_'.file = "env.yaml"
