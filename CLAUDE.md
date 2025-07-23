@@ -26,7 +26,7 @@ This is a KeePassXC database recovery tool written in Python. It systematically 
 
 ### Environment Setup
 
-- `mise sync` - Install and sync all dependencies (Python, UV, and project dependencies)
+- `mise run sync` - Install and sync all dependencies (Python, UV, and project dependencies)
 - `uv sync` - Sync Python dependencies directly
 
 ### Code Formatting
@@ -73,7 +73,7 @@ This is a KeePassXC database recovery tool written in Python. It systematically 
 
 ## Development Workflow
 
-1. Run `mise sync` to set up the development environment
+1. Run `mise run sync` to set up the development environment
 2. Use `mise run format` before committing changes
 3. Test changes with sample databases in the repo
 4. The tool is defensive security focused - for recovering your own databases only
